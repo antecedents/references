@@ -29,8 +29,6 @@ class S3Parameters:
                           Web Services (AWS) profile details, which allows for programmatic interaction with AWS.
         """
 
-        self.__connector = connector
-
         # An instance for S3 interactions
         self.__s3_client: boto3.session.Session.client = connector.client(
             service_name='s3')
