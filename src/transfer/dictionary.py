@@ -56,4 +56,4 @@ class Dictionary:
         frame = frame.assign(name=frame['key'].apply(lambda x: str(pathlib.Path(x).stem)))
         logging.info(frame)
 
-        return frame[['file', 'key']]
+        return frame[['file', 'key', 'name']]
