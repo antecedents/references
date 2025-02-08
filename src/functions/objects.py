@@ -3,9 +3,8 @@ Module objects.py
 """
 import json
 import pathlib
-import sys
 
-import requests
+import src.functions.api
 
 
 class Objects:
@@ -14,7 +13,7 @@ class Objects:
 
     Description
     -----------
-    This class reads & writes JSON (JavaScript Object Notation) objects
+    This class reads & writes JSON (JavaScript Object Notation) objects.
     """
 
     def __init__(self):
@@ -47,24 +46,14 @@ class Objects:
     def api(url: str) -> dict:
         """
 
-        :param url:
+        :param url: An online data source URL (Uniform Resource Locator)
         :return:
         """
 
-        try:
-            response = requests.get(url=url, timeout=600)
-            response.raise_for_status()
-        except requests.exceptions.Timeout as err:
-            raise err from err
-        except requests.exceptions.HTTPError as err:
-            raise err from err
-        except Exception as err:
-            raise err from err
+        instance = src.functions.api.API()
+        content = instance(url=url)
 
-        if response.status_code == 200:
-            return response.json()
-
-        sys.exit(response.status_code)
+        return json.loads(content)
 
     @staticmethod
     def read(uri: str) -> dict:
