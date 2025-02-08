@@ -47,7 +47,7 @@ class Institutions:
         :return:
         """
 
-        return src.source.api.API().__call__(url=self.__url + '&limit=1000')
+        return src.source.api.API()(url=self.__url + '&limit=1000')
 
     @staticmethod
     def __inspect(data: pd.DataFrame, field: str) -> None:
