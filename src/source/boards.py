@@ -41,7 +41,7 @@ class Boards:
         :return:
         """
 
-        return src.source.api.API().__call__(url=self.__url + '&limit=100')
+        return src.source.api.API()(url=self.__url + '&limit=100')
 
     @staticmethod
     def __inspect(blob: pd.DataFrame, field: str, expectation: int):
