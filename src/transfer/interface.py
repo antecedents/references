@@ -45,7 +45,7 @@ class Interface:
         """
 
         frame = frame.assign(
-            metadata = frame['name'].apply(lambda x: self.__metadata.exc(name=(x + '.json'))))
+            metadata = frame['name'].apply(lambda x: self.__metadata.exc(name=x + '.json')))
 
         return frame
 
@@ -66,5 +66,6 @@ class Interface:
 
         # Transfer
         messages = src.s3.ingress.Ingress(
-            service=self.__service, bucket_name=self.__s3_parameters.internal).exc(strings=strings, tagging='project=emergency')
+            service=self.__service, bucket_name=self.__s3_parameters.internal).exc(
+            strings=strings, tagging='project=emergency')
         logging.info(messages)
