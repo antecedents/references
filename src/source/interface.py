@@ -36,7 +36,7 @@ class Interface:
         """
 
         dictionary = src.s3.configurations.Configurations(connector=self.__connector).serial(
-            key_name=self.__configurations.sources)
+            key_name=self.__configurations.sources_)
 
         return src.elements.sources.Sources(**dictionary)
 
