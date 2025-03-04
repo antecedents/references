@@ -23,4 +23,4 @@ class Config:
         # Configurations files, paths
         self.s3_parameters_key = 's3_parameters.yaml'
         self.sources_ = 'sources.yaml'
-        self.metadata_ = 'metadata'
+        self.metadata_ = 'source'
